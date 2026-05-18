@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractiveArea : MonoBehaviour
 {
     UIManager uiManagerScript;
+    public bool isInteractive = false;
     
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,12 @@ public class InteractiveArea : MonoBehaviour
         Interactable interactableScript = other.GetComponent<Interactable>();
         if (interactableScript != null)
         {
-            other.gameObject.SetActive(false);
             uiManagerScript.ShowCartelPresione();
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        uiManagerScript.HideCartelPresione();
     }
 }
