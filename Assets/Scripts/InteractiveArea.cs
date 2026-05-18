@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class InteractiveArea : MonoBehaviour
 {
+    UIManager uiManagerScript;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        uiManagerScript = GameObject.FindObjectOfType<UIManager>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class InteractiveArea : MonoBehaviour
         if (interactableScript != null)
         {
             other.gameObject.SetActive(false);
+            uiManagerScript.ShowCartelPresione();
         }
     }
 }
